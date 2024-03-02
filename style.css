@@ -1,0 +1,462 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url('img/background.jpg');
+    background-size: cover;
+}
+
+.page{
+   background-color: #06012d; 
+    margin-left: 200px;
+    margin-right: 200px;
+    max-width: 100%;
+}
+.page img{
+    transform: scaleX(-1);
+}
+.mesiaceobraz {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    background-image: url('img/mesiacebackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 250px;
+    
+  }
+  .domovobraz {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    background-image: url('img/domovbackground2.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 200px;
+    
+  }
+  .hviezdyobraz {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    background-image: url('img/slnkobackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 200px;
+    
+  }
+  .planetyobraz {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+    background-image: url('img/planetybackground.jpg');
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 200px;
+    
+  }
+  
+  .content {
+    text-align: center; 
+    color: rgb(255, 255, 255); 
+    padding: 20px; 
+    width: 100%;
+    
+  }
+  .content h1{
+    text-align: center; 
+    color: rgb(252, 252, 252); 
+    padding: 20px; 
+    width: 100%;
+    
+  }
+.container{
+    padding-bottom: 40px;
+    padding-top: 150px;
+}
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #002b7c;
+  }
+#menu{
+    margin: auto;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+    background-color: #121212;
+}
+#menu img{
+width: 100%;
+border-radius: 30px;
+padding-top: 15px;
+padding-left: 15px;
+}
+#logoid{
+    max-width: 10%;
+    padding-bottom: 20px;
+    margin-left: 20px;
+}
+
+#menuicon{
+    display: none;
+    width: 10%;
+    max-width: 10%;
+    cursor: pointer;
+}
+header {
+    font-size: 10px;
+}
+main h1{
+    color: rgb(214, 214, 214);
+    text-transform: uppercase;
+    
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+    text-decoration: white;
+    
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+    
+    
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+    padding-top: 20px;
+    position: relative;
+    
+    
+}
+nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #f2f2f2;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 20px;
+}
+nav a:hover {
+    background-color: #333;
+    color: #fff;
+} 
+
+footer {
+    margin-top: 300px;
+    text-align: center;
+    padding: 20px;
+    background-color:#121212; 
+    color: #fff;
+}
+.footerid{
+    margin-top: 800px;
+}
+footer a{
+    text-decoration: none;
+}
+.riadok {
+    opacity: 0; 
+    padding-top: 50px;
+    animation-name:fade;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+  to {opacity: 1}
+}
+.riadok p,h2{
+    color: #fff;
+    
+}
+.riadok h2{
+  text-align: center;
+}
+.riadok p{
+    font-size: 20px;
+}
+.riadok h2 h3{
+    font-size: 40px;
+    margin-left: 25px;
+    text-align: center;
+}
+.riadok h3{
+    padding-left:20px;
+}
+#riadok2{
+    display: none;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+}
+.flex img{
+    max-width: 100%;
+    
+    border-radius: 50px;
+}
+.row{
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+
+}
+span:hover{
+cursor: pointer;
+background-color: #333;
+}
+
+/* HVIEZDY */
+.background{
+    padding-top: 200px;
+    display: flex;
+}
+
+.background img {
+   max-width: 100%;
+    width: 30%;
+ 
+}
+
+.box{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+}
+#Slnko{
+    width: 50%;
+}
+
+.row h2{
+    padding: 15px;
+    text-align: center;
+}
+h3{
+    color: #f2f2f2;
+}
+.accordion {
+    background-color: #051a62;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #443fd4; 
+  }
+  
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background: none;
+    overflow: hidden;
+    max-width: 50%;
+  }
+  .citajviac{
+    padding-left: 100px;
+    padding-bottom: 100px;
+    height: 100px;
+  }
+
+  /*UCET*/
+  .flexform{
+    display: flex;
+}
+  #padding{
+    padding-top: 150px;
+  }
+  form{
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+  textarea{
+    width: 100%;
+    border-radius: 15px;
+  }
+form input{
+padding: 5px;
+border-radius: 15px;
+width: 90%;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+form button{
+    padding: 10px 20px;
+    margin-top: 50px;
+    border-radius: 100px;
+    border-color: #051a62;
+    cursor: pointer;
+    width: 90%;
+    justify-content: center;
+    background-color: #051a62;
+    color: #ffffff;
+}
+#formular .flexform{
+justify-content: center;
+}
+
+#checkbox{
+    display: flex;
+    align-items: center;
+}
+#checkbox p{
+    padding-left: 15px;
+}
+
+/*HAMBURGER MENU*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    z-index: 1;
+}
+
+/* KONTAKTY */
+
+table{
+    color: #fff;
+    size: 25px;
+    padding-bottom: 25px;
+}
+table td{
+    margin: 10px;
+    margin-right: 15px;
+    padding: 10px 10px;
+    padding-right: 15px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* RESPONSIVE */
+
+
+@media screen and (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+    }
+    #menuicon{
+   display: block;
+   width: 10%;
+    }
+    nav ul {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: #151515;
+        width: 100%;
+        overflow: hidden;
+    }
+    nav ul li {
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static;
+        background-color: transparent;
+        padding-left: 20px; 
+    }
+
+    .dropdown-content li {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .page {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+      .flex{
+          flex-direction: column;
+        }
+        .row p{
+          margin-right: 10px;
+        }
+        .row{
+          flex-direction: column;
+        }
+        footer{
+          margin-top: 800px;
+        }
+        
+    
+}
+ 
+  @media (max-width: 480px) {
+    .page {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .riadok h2 {
+      font-size: 30px;
+    }
+    .riadok p {
+      font-size: 16px;
+    }
+    #milkyway {
+      max-width: 100%;
+    }
+    footer{
+      margin-top: 800px;
+    }
+  }
+
+
+

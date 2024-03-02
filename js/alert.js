@@ -1,0 +1,1 @@
+alert('Úspešná registrácia');
