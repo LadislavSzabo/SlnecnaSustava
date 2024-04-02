@@ -8,34 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-    
-    <header>  
-     <!---------------NAVIGACIA--------------->
-        <div id="menu">
-            <a href="index.html" id="logoid">  <img src="img/Logo.PNG" alt="Logo"> </a>
-             <nav>
-                 <ul id="menuveci" style="max-height: 0px;">  
-                     <li> 
-                         <a href="index.html">Domov</a>
-                     </li>
-                     <li> 
-                         <a href="planety.html">Planéty</a>
-                     </li>      
-                     <li class="dropdown"> 
-                         <a href="mesiace.html">Mesiace</a>
-                     </li>
-                     <li> 
-                         <a href="hviezdy.html">Hviezdy</a>
-                     </li>
-                     <li> 
-                         <a href="ucet.html">Účet</a>
-                     </li>
-                 </ul>
-                        
-             </nav>
-             <img src="img/menuicon.png" id="menuicon" onclick="mobilmenu()" alt="Hamburger icon">
-           </div>
-    </header>
+<?php
+    require_once ("partials/header.php")
+    ?>
 <main> 
     <!---------------BANNER S TEXTOM--------------->
     <div class="planetyobraz">
@@ -299,25 +274,9 @@
 </div>
 </div>
 </main>
-<!---------------FOOTER--------------->
-    <footer>
-        <div class="flex">
-            <div class="row">
-                <a href="kontakty.html">Kontakty</a>
-            </div>
-<div class="row">
-    <p>@Copyright 2023</p>
-</div>
-<div class="row">
-    <p>Táto stránka slúži ako informačná stránka pre tých, ktorí sa zaujímajú o astronómiu, 
-        ak sa chcete dozvedieť viac o astronómii, navštívte <a href="https://www.nasa.gov"> https://www.nasa.gov</a>
-    </p>
-</div>
-
-        </div>
-        
-    
-</footer>
+<?php
+    include_once ('partials/footer.php')
+    ?>
     <script src="js/slideshow.js"></script>
     <script src="js/accordion.js"></script>
     <script src="js/hamburger.js"></script>
