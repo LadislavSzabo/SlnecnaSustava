@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okolo našej slnečnej sústavy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
+
+
 <?php
-    require_once ("partials/header.php")
+    require_once ("partials/header.php");
+    require_once ("../_inc/webpage.php");
     ?>
+    <body>
 <main> 
     <!---------------BANNER S TEXTOM--------------->
     <div class="planetyobraz">
@@ -35,7 +29,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/merkur.png" id="Slnko">
+       <img src="../assets/img/merkur.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -73,7 +67,7 @@
        
         </div>
         <div class="row"> 
-           <img src="img/venus.png" id="Slnko">
+           <img src="../assets/img/venus.png" id="Slnko">
            <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
             </div>
             
@@ -108,7 +102,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/zem.png" id="Slnko">
+       <img src="../assets/img/zem.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -144,7 +138,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/mars.png" id="Slnko">
+       <img src="../assets/img/mars.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -180,7 +174,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/jupiter.png" id="Slnko">
+       <img src="../assets/img/jupiter.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -215,7 +209,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/saturn.png" id="Slnko">
+       <img src="../assets/img/saturn.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -252,7 +246,7 @@
    
     </div>
     <div class="row"> 
-       <img src="img/neptunus.png" id="Slnko">
+       <img src="../assets/img/neptunus.png" id="Slnko">
        <h2> <span class="arrow" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></span></h2>
         </div>
         
@@ -277,8 +271,8 @@
 <?php
     include_once ('partials/footer.php')
     ?>
-    <script src="js/slideshow.js"></script>
-    <script src="js/accordion.js"></script>
-    <script src="js/hamburger.js"></script>
+    <script src="../assets/js/slideshow.js"></script>
+    <script src="../assets/js/accordion.js"></script>
+    <script src="../assets/js/hamburger.js"></script>
 </body>
 </html>

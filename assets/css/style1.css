@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
-    background-image: url('img/background.jpg');
+    background-image: url('../img/background.jpg');
     background-size: cover;
 }
 
@@ -20,7 +20,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden; 
-    background-image: url('img/mesiacebackground.jpg');
+    background-image: url('../img/mesiacebackground.jpg');
     background-size: cover; 
     background-position: center; 
     display: flex;
@@ -33,7 +33,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden; 
-    background-image: url('img/domovbackground2.png');
+    background-image: url('../img/domovbackground2.png');
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center; 
@@ -47,7 +47,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden; 
-    background-image: url('img/slnkobackground.jpg');
+    background-image: url('../img/slnkobackground.jpg');
     background-size: cover; 
     background-position: center; 
     display: flex;
@@ -60,7 +60,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden; 
-    background-image: url('img/planetybackground.jpg');
+    background-image: url('../img/planetybackground.jpg');
     background-size: cover; 
     background-position: center; 
     display: flex;
