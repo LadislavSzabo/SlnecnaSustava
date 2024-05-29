@@ -8,10 +8,11 @@ define('DATABASE', [
     'PASSWORD' => ''
 ]);
 
+require_once('Classes/Database.php');
+require_once('Classes/User.php');
 session_start();
 
 
-require_once('classes/Database.php');
 
 
 

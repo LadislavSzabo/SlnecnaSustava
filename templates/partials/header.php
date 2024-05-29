@@ -9,27 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <!---------------NAVIGACIA--------------->
-        <div id="menu">
-            <a href="../index.php" id="logoid">  <img src="../assets/img/Logo.png" alt="Logo"> </a>
-             <nav>
-                 <ul id="menuveci" style="max-height: 0px;">  
-                     <li> 
-                         <a href="index.html">Domov</a>
-                     </li>
-                     <li> 
-                         <a href="planety.php">Planéty</a>
-                     </li>      
-                     <li class="dropdown"> 
-                         <a href="mesiace.php">Mesiace</a>
-                     </li>
-                     <li> 
-                         <a href="hviezdy.php">Hviezdy</a>
-                     </li>
-                     <li> 
-                         <a href="ucet.php">Účet</a>
-                     </li>
-                 </ul>
-                        
-             </nav>
-             <img src="../assets/img/menuicon.png" id="menuicon" onclick="mobilmenu()" alt="Hamburger icon">
-           </div>
+<?php
+require_once('../_inc/Classes/Menu.php');
+$menu = new Menu();
+$menu->addItem('../index.php', 'Domov');
+$menu->addItem('planety.php', 'Planéty');
+$menu->addItem('mesiace.php', 'Mesiace', 'dropdown');
+$menu->addItem('hviezdy.php', 'Hviezdy');
+$menu->addItem('ucet.php', 'Účet');
+
+// Render the menu
+$menu->render();
+?>
+<img src="../assets/img/menuicon.png" id="menuicon" onclick="mobilmenu()" alt="Hamburger icon">
+</div>

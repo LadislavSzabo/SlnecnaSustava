@@ -2,7 +2,7 @@
 <footer>
         <div class="flex">
             <div class="row">
-                <a href="kontakty.html">Kontakty</a>
+                <a href="../templates/kontakty.php">Kontakty</a>
             </div>
 <div class="row">
     <p>@Copyright 2023</p>

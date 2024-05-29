@@ -1,64 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okolo našej slnečnej sústavy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
+<?php
+require_once('../_inc/webpage.php');
+            
+if(isset($_POST['login'])){
+    $email = $_POST['email'];
+    $password = $_POST['heslo'];
+    $user = new User();
+    //tu bude vzdy true alebo false
+    $login_success = $user->login($email,$password);
+    if($login_success == true){
+        header('Location: admin.php');
+        exit;
+    }else{
+        echo 'Nesprávne meno alebo heslo';
+    }
+}
 
-    < <?php
-    require_once ("partials/header.php")
+        require_once ("partials/header.php");
     ?>
 <main id="padding"> 
     <!---------------FORMULAR--------------->
-    <center > <h1> Registracia </h1></center>
+    <center > <h1> Prihlasenie</h1></center>
     <div id="formular">
         <div class="flexform"> 
             <div id="forma"> 
-    <form action="thankyou.html"> 
-        <p>Meno</p>
-        <input type="text">
-        <p>Priezvisko</p>
-        <input type="text">
+    <form action="" method="POST"> 
         <p>E-mail</p>
-        <input type="email">
+        <input type="email" id="email" name="email" required>
         <p>Heslo</p>
-        <input type="password">
-        <p>Poznamka</p>
-        <textarea></textarea>
-        <div id="checkbox"> 
-        <p>Súhlasim so spracovanim osobných údajov.</p>
-        <input type="checkbox" required>
-        </div>
-        <button type="submit" action="thankyou.html"> Odoslať </button>
+        <input type="password" id="heslo" name="heslo" required>
+        <p> Nemate ucet? <a href="register.php"> Tu mozete registrovat </a> </p>
+        <button type="submit" name="login"> Odoslať </button>
     </form>
 </div>
 </div>
 </div>
 </main>
 <!---------------FOOTER--------------->
-    <footer id="footerid">
-        <div class="flex">
-            <div class="row">
-                <a href="kontakty.html">Kontakty</a>
-            </div>
-    <div class="row">
-    <p>@Copyright 2023</p>
-    </div>
-    <div class="row">
-    <p>Táto stránka slúži ako informačná stránka pre tých, ktorí sa zaujímajú o astronómiu,
-         ak sa chcete dozvedieť viac o astronómii, navštívte <a href="https://www.nasa.gov"> https://www.nasa.gov</a>
-    </p>
-    </div>
-    
-        </div>
-        
-    </footer>
+<?php
+    include_once ('partials/footer.php')
+    ?>
 
 
-    <script src="js/hamburger.js"></script>
+    <script src="../assets/js/hamburger.js"></script>
 </body>
 </html>

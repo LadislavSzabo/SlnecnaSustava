@@ -1,5 +1,5 @@
 <?php
-
+require_once('connection.php');
     class Webpage{
         private $page_name;
 
