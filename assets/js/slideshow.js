@@ -25,4 +25,9 @@ function prevSlide() {
     slideIndex = totalSlides - 1;
   }
   showSlide(slideIndex);
-}
+}  // Initial display of the first slide
+showSlide(slideIndex);
+
+// Attach functions to global scope for navigation
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;

@@ -65,7 +65,40 @@
                 return false;
             }
         }
-    }
+        public function getSlidesHviezdy() {
+            try {
+                $sql = "SELECT * FROM hviezdy ORDER BY id ASC";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } catch (PDOException $e) {
+                echo "Chyba pri získavaní snímok: " . $e->getMessage();
+                return [];
+            }}
+            
+            
+        public function getSlidesPlanety() {
+            try {
+                $sql = "SELECT * FROM planety ORDER BY id ASC";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } catch (PDOException $e) {
+                echo "Chyba pri získavaní snímok: " . $e->getMessage();
+                return [];
+            }}
+        public function getSlidesMesiace() {
+            try {
+                $sql = "SELECT * FROM planety ORDER BY id ASC";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } catch (PDOException $e) {
+                echo "Chyba pri získavaní snímok: " . $e->getMessage();
+                return [];
+            }}                
+                
+        }
 
 
 ?>
