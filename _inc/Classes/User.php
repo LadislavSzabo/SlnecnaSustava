@@ -26,6 +26,8 @@
                     $_SESSION['logged_in'] = true;
                     $_SESSION['is_admin'] =  $query_run->fetch()->role;
                     return true;
+                    header('Location: admin.php');
+                    exit;
                 } else {
                     return false;
                 }

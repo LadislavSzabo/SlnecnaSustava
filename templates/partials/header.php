@@ -12,12 +12,22 @@
 <?php
 require_once('../_inc/Classes/Menu.php');
 $menu = new Menu();
-$menu->addItem('../index.php', 'Domov');
+session_start();
+if($_SESSION['is_admin'] == 1){
+    $menu->addItem('admin.php', 'Admin');
+  }else{
+    $menu->addItem('../index.php', 'Domov');
+  }
+
 $menu->addItem('planety.php', 'Planéty');
 $menu->addItem('mesiace.php', 'Mesiace', 'dropdown');
 $menu->addItem('hviezdy.php', 'Hviezdy');
-$menu->addItem('ucet.php', 'Účet');
 
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+    $menu->addItem('logout.php', 'Logout');
+} else {
+    $menu->addItem('ucet.php', 'Účet');
+}
 // Render the menu
 $menu->render();
 ?>

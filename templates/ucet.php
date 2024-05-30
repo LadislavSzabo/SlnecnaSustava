@@ -1,6 +1,5 @@
 <?php
-require_once('../_inc/webpage.php');
-            
+require_once('../_inc/webpage.php');           
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['heslo'];
@@ -8,12 +7,21 @@ if(isset($_POST['login'])){
     //tu bude vzdy true alebo false
     $login_success = $user->login($email,$password);
     if($login_success == true){
-        header('Location: admin.php');
-        exit;
+        if($_SESSION['is_admin'] == 1){
+            $_SESSION['logged_in'] = true;
+            $_SESSION['is_admin'] = 1;
+            header('Location: admin.php');
+          }
+          else{
+            $_SESSION['logged_in'] = true;
+            header('Location:../index.php');
+          }
+            
     }else{
         echo 'Nesprávne meno alebo heslo';
-    }
-}
+            
+        }
+       }
 
         require_once ("partials/header.php");
     ?>
