@@ -2,19 +2,21 @@
     require_once ("partials/header.php");
     require_once ("../_inc/webpage.php");
     
-    $user = new User();
-    $slides = $user->getSlidesHviezdy();
+    $entity = new Entity();
+    $slides = $entity->getSlidesHviezdy();
 
 ?>
 <body>
 <main> 
-    <!---------------BANNER S TEXTOM--------------->
+    <!---------------BANNER S TEXTOM
     <div class="hviezdyobraz" id="mesiace">
         <div class="content">
           <h1>Najbližšie hviezdy v galaxii</h1>
           <a href="#hviezdy" class="button-link">Čítať viac</a>
         </div>
-      </div>
+      </div>--------------->
+     <?php 
+     Banner::banner();?>
 
 <!---------------SLIDEs--------------->
 <?php foreach ($slides as $index => $slide): ?>
@@ -42,18 +44,75 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
 <?php endforeach; ?>
 
 
-</div>
-</div>
 </main>
 <!---------------FOOTER--------------->
 <?php
     include_once ('partials/footer.php')
     ?>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.riadok');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+        slides[index].style.display = 'block';
+    }
+
+    function nextSlide() {
+        if (slideIndex < totalSlides - 1) {
+            slideIndex++;
+        } else {
+            slideIndex = 0;
+        }
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        if (slideIndex > 0) {
+            slideIndex--;
+        } else {
+            slideIndex = totalSlides - 1;
+        }
+        showSlide(slideIndex);
+    }
+
+    // Initial display of the first slide
+    showSlide(slideIndex);
+
+    // Attach functions to global scope for navigation
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+});
+
+</script>
 <script src="../assets/js/slideshow.js"></script>
-<script src="../assets/js/accordion.js"></script>
 <script src="../assets/js/hamburger.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-    class User extends Database{
+    class Entity extends Database{
 
         private $db;
 
@@ -9,62 +9,41 @@
             $this->db = $this->db_connection();
         }
 
-        public function login($email, $password){
-            //$username a $password došli z $_POST 
-            try{
-                $data = array(
-                    'user_email'=>$email,
-                    'user_password'=>md5($password),
-                );
-                
-                $sql = "SELECT * FROM user WHERE email = :user_email AND password = :user_password";
-                $query_run = $this->db->prepare($sql);
-                $query_run->execute($data);
-                $n_rows = $query_run->rowCount();
-                if($n_rows == 1) {
-                    // login je uspesny
-                    $_SESSION['logged_in'] = true;
-                    $_SESSION['is_admin'] =  $query_run->fetch()->role;
-                    return true;
-                    header('Location: admin.php');
-                    exit;
-                } else {
-                    return false;
+        public function uploadDataHviezdy($title, $content, $fact1, $fact2) {
+            if ($this->validateData($title, $content, $fact1, $fact2)) {
+                try {
+                    $query = "INSERT INTO hviezdy (title, content, fact1, fact2) VALUES (:title, :content, :fact1, :fact2)";
+                    $stmt = $this->conn->prepare($query);
+    
+                    // Bind parameters
+                    $stmt->bindParam(':title', $title);
+                    $stmt->bindParam(':content', $content);
+                    $stmt->bindParam(':fact1', $fact1);
+                    $stmt->bindParam(':fact2', $fact2);
+    
+                    if ($stmt->execute()) {
+                        return "Data successfully uploaded.";
+                    } else {
+                        return "Failed to upload data.";
+                    }
+                } catch(PDOException $e) {
+                    return "Error: " . $e->getMessage();
                 }
-            }catch(PDOException $e){
-                    echo $e->getMessage();
+            } else {
+                return "Invalid data. Please check your input.";
             }
         }
-
-        public function register($name, $lastname, $email, $password){
-            try{
-             
-                $hashed_password = $password;
-        
-                // Dáta pre vloženie nového používateľa do databázy
-                $data = array(
-                    'name' => $name,
-                    'lastname' => $lastname,
-                    'user_email' => $email,
-                    'user_password' => md5($hashed_password),
-                    'user_role'=>'0'
-                );
-        
-                // SQL dopyt na vloženie nového používateľa
-                $sql = "INSERT INTO user (name,lastname, email, password,role) VALUES (:name, :lastname, :user_email, :user_password,:user_role)";
-                $query_run = $this->db->prepare($sql);
-                $query_run->execute($data);
-        
-                // Úspešná registrácia
-                header("Location: ../templates/thankyou.php");
-                return true;
-                
-            } catch(PDOException $e){
-                // Spracovanie chyby, ak nastane
-                echo "Chyba pri registrácii: " . $e->getMessage();
+    
+        private function validateData($title, $content, $fact1, $fact2) {
+            // Example validation: check if any field is empty
+            if (empty($title) || empty($content) || empty($fact1) || empty($fact2)) {
                 return false;
             }
+            // Add more validation as needed
+            return true;
         }
+    
+
         public function getSlidesHviezdy() {
             try {
                 $sql = "SELECT * FROM hviezdy ORDER BY id ASC";

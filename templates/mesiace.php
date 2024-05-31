@@ -2,19 +2,21 @@
     require_once ("partials/header.php");
     require_once ("../_inc/webpage.php");
     
-    $user = new User();
-    $slides = $user->getSlidesMesiace();
+    $entity = new Entity();
+    $slides = $entity->getSlidesMesiace();
 
 ?>
 <body>
 <main> 
-    <!---------------BANNER S TEXTOM--------------->
+<?php 
+     Banner::banner();?>
+    <!---------------BANNER S TEXTOM
     <div class="mesiaceobraz">
         <div class="content">
           <h1>Mesiace v slnečnej Sustave</h1>
           <a href="#mesiace" class="button-link">Čítať viac</a>
         </div>
-      </div>
+      </div>--------------->
 <!---------------SLIDEs--------------->
 <?php foreach ($slides as $index => $slide): ?>
     <div class="riadok" alt="Slide <?php echo $slide->id; ?>" id="slide-<?php echo $slide->id; ?>" style="<?php echo $index == 0 ? 'display: block;' : 'display: none;'; ?>">
@@ -47,8 +49,67 @@
 <?php
     include_once ('partials/footer.php');
     ?>
-    <script src="../assets/js/slideshow.js"></script>
-    <script src="../assets/js/accordion.js"></script>
-    <script src="../assets/js/hamburger.js"></script>
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.riadok');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+        slides[index].style.display = 'block';
+    }
+
+    function nextSlide() {
+        if (slideIndex < totalSlides - 1) {
+            slideIndex++;
+        } else {
+            slideIndex = 0;
+        }
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        if (slideIndex > 0) {
+            slideIndex--;
+        } else {
+            slideIndex = totalSlides - 1;
+        }
+        showSlide(slideIndex);
+    }
+
+    // Initial display of the first slide
+    showSlide(slideIndex);
+
+    // Attach functions to global scope for navigation
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+});
+</script>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+});
+
+</script>
+<script src="../assets/js/slideshow.js"></script>
+<script src="../assets/js/accordion.js"></script>
+<script src="../assets/js/hamburger.js"></script>
 </body>
 </html>
