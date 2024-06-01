@@ -8,18 +8,18 @@
         {
             $this->db = $this->db_connection();
         }
+//UPLOAD HVIEZDY//
 
-        public function uploadDataHviezdy($title, $content, $fact1, $fact2) {
-            if ($this->validateData($title, $content, $fact1, $fact2)) {
+        public function uploadDataHviezdy($title, $content, $fakt1, $fakt2) {
+            if ($this->validateData($title, $content, $fakt1, $fakt2)) {
                 try {
-                    $query = "INSERT INTO hviezdy (title, content, fact1, fact2) VALUES (:title, :content, :fact1, :fact2)";
-                    $stmt = $this->conn->prepare($query);
+                    $query = "INSERT INTO hviezdy (title, content, fakt1, fakt2) VALUES (:title, :content, :fakt1, :fakt2)";
+                    $stmt = $this->db->prepare($query);
     
-                    // Bind parameters
                     $stmt->bindParam(':title', $title);
                     $stmt->bindParam(':content', $content);
-                    $stmt->bindParam(':fact1', $fact1);
-                    $stmt->bindParam(':fact2', $fact2);
+                    $stmt->bindParam(':fakt1', $fakt1);
+                    $stmt->bindParam(':fakt2', $fakt2);
     
                     if ($stmt->execute()) {
                         return "Data successfully uploaded.";
@@ -34,12 +34,10 @@
             }
         }
     
-        private function validateData($title, $content, $fact1, $fact2) {
-            // Example validation: check if any field is empty
-            if (empty($title) || empty($content) || empty($fact1) || empty($fact2)) {
+        private function validateData($title, $content, $fakt1, $fakt2) {
+            if (empty($title) || empty($content) || empty($fakt1) || empty($fakt2)) {
                 return false;
             }
-            // Add more validation as needed
             return true;
         }
     
@@ -77,13 +75,13 @@
                 return [];
             }}                
                 
-        
+        //UPDATE Hviezdy//
         public function getAllSlidesHviezdy() {
-            $sql = "SELECT * FROM hviezdy";
-            $query_run = $this->db->prepare($sql);
-            $query_run->execute();
-            return $query_run->fetchAll();
-        }        
+            $query = "SELECT id, title, content, fakt1, fakt2 FROM hviezdy";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            } 
         public function updateSlideHviezdy($id, $title, $content, $fakt1, $fakt2) {
             $sql = "UPDATE hviezdy SET title = :title, content = :content, fakt1 = :fakt1, fakt2 = :fakt2 WHERE id = :id";
             $query_run = $this->db->prepare($sql);
@@ -93,13 +91,45 @@
             $query_run->bindParam(':fakt2', $fakt2);
             $query_run->bindParam(':id', $id);
             return $query_run->execute();
-        }    
+        }
+        public function deleteSlideHviezdy($id) {
+            $query = "DELETE FROM hviezdy WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            return $stmt->execute();
+        }
+        //UPLOAD MESIACE//
+
         public function getAllSlidesMesiace() {
-            $sql = "SELECT * FROM mesiace";
-            $query_run = $this->db->prepare($sql);
-            $query_run->execute();
-            return $query_run->fetchAll();
-        }        
+            $query = "SELECT id, title, content, fakt1, fakt2 FROM mesiace";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            }
+            public function uploadDataMesiace($title, $content, $fakt1, $fakt2) {
+                if ($this->validateData($title, $content, $fakt1, $fakt2)) {
+                    try {
+                        $query = "INSERT INTO mesiace (title, content, fakt1, fakt2) VALUES (:title, :content, :fakt1, :fakt2)";
+                        $stmt = $this->db->prepare($query);
+        
+                        $stmt->bindParam(':title', $title);
+                        $stmt->bindParam(':content', $content);
+                        $stmt->bindParam(':fakt1', $fakt1);
+                        $stmt->bindParam(':fakt2', $fakt2);
+        
+                        if ($stmt->execute()) {
+                            return "Data successfully uploaded.";
+                        } else {
+                            return "Failed to upload data.";
+                        }
+                    } catch(PDOException $e) {
+                        return "Error: " . $e->getMessage();
+                    }
+                } else {
+                    return "Invalid data. Please check your input.";
+                }
+            }
+                     //UPDATE MESIACE//          
         public function updateSlideMesiace($id, $title, $content, $fakt1, $fakt2) {
             $sql = "UPDATE mesiace SET title = :title, content = :content, fakt1 = :fakt1, fakt2 = :fakt2 WHERE id = :id";
             $query_run = $this->db->prepare($sql);
@@ -110,12 +140,45 @@
             $query_run->bindParam(':id', $id);
             return $query_run->execute();
         }
-        public function getAllSlidesPlanety() {
-            $sql = "SELECT * FROM planety";
-            $query_run = $this->db->prepare($sql);
-            $query_run->execute();
-            return $query_run->fetchAll();
+        //DELETE MESIACE//  
+        public function deleteSlideMesiace($id) {
+            $query = "DELETE FROM mesiace WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            return $stmt->execute();
         }        
+        //UPLOAD planety//
+
+        public function getAllSlidesPlanety() {
+            $query = "SELECT id, title, content, fakt1, fakt2 FROM planety";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+            }
+            public function uploadDataPlanety($title, $content, $fakt1, $fakt2) {
+                if ($this->validateData($title, $content, $fakt1, $fakt2)) {
+                    try {
+                        $query = "INSERT INTO planety(title, content, fakt1, fakt2) VALUES (:title, :content, :fakt1, :fakt2)";
+                        $stmt = $this->db->prepare($query);
+        
+                        $stmt->bindParam(':title', $title);
+                        $stmt->bindParam(':content', $content);
+                        $stmt->bindParam(':fakt1', $fakt1);
+                        $stmt->bindParam(':fakt2', $fakt2);
+        
+                        if ($stmt->execute()) {
+                            return "Data successfully uploaded.";
+                        } else {
+                            return "Failed to upload data.";
+                        }
+                    } catch(PDOException $e) {
+                        return "Error: " . $e->getMessage();
+                    }
+                } else {
+                    return "Invalid data. Please check your input.";
+                }
+            }  
+            //UPDATE Planety//      
         public function updateSlidePlanety($id, $title, $content, $fakt1, $fakt2) {
             $sql = "UPDATE planety SET title = :title, content = :content, fakt1 = :fakt1, fakt2 = :fakt2 WHERE id = :id";
             $query_run = $this->db->prepare($sql);
@@ -125,7 +188,14 @@
             $query_run->bindParam(':fakt2', $fakt2);
             $query_run->bindParam(':id', $id);
             return $query_run->execute();
-        }                
+        }
+        //DELETE PLANETY//  
+        public function deleteSlidePlanety($id) {
+            $query = "DELETE FROM planety WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id);
+            return $stmt->execute();
+        }                        
     
     }
 

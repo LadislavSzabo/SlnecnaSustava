@@ -18,6 +18,7 @@ session_start();
 if(isset($_SESSION['logged_in']) && $_SESSION['is_admin'] == 1){
     $menu->addItem('admin.php', 'Admin');
   }else{
+    
     $menu->addItem('../index.php', 'Domov');
   }
 
@@ -28,9 +29,10 @@ $menu->addItem('hviezdy.php', 'Hviezdy');
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     $menu->addItem('logout.php', 'Logout');
 } else {
+    session_destroy();
     $menu->addItem('ucet.php', 'Účet');
 }
-// Render the menu
+
 $menu->render();
 ?>
 <img src="../assets/img/menuicon.png" id="menuicon" onclick="mobilmenu()" alt="Hamburger icon">

@@ -27,7 +27,7 @@ if(isset($_POST['login'])){
     ?>
 <main id="padding"> 
     <!---------------FORMULAR--------------->
-    <center > <h1> Prihlasenie</h1></center>
+    <center > <h1> Prihlásenie</h1></center>
     <div id="formular">
         <div class="flexform"> 
             <div id="forma"> 
@@ -36,7 +36,7 @@ if(isset($_POST['login'])){
         <input type="email" id="email" name="email" required>
         <p>Heslo</p>
         <input type="password" id="heslo" name="heslo" required>
-        <p> Nemate ucet? <a href="register.php"> Tu mozete registrovat </a> </p>
+        <p> Nemate účet? <a href="register.php"> Registrovať sa môžete kliknutím na tento odkaz </a> </p>
         <button type="submit" name="login"> Odoslať </button>
     </form>
 </div>

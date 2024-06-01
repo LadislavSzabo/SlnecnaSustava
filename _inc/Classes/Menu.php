@@ -34,3 +34,4 @@ class Menu {
         echo '</div>';
     }
 }
+?>

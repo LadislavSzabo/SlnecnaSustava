@@ -10,14 +10,7 @@
 <main> 
 <?php 
      Banner::banner();?>
-    <!---------------BANNER S TEXTOM
-    <div class="planetyobraz">
-        <div class="content">
-          <h1>Planéty v našom slnečnom systéme</h1>
-          <a href="#planety" class="button-link">Čítať viac</a>
-        </div>
-      </div>--------------->
-<!---------------SLIDEs--------------->
+<!---------------SLIDES--------------->
 <?php foreach ($slides as $index => $slide): ?>
     <div class="riadok" alt="Slide <?php echo $slide->id; ?>" id="slide-<?php echo $slide->id; ?>" style="<?php echo $index == 0 ? 'display: block;' : 'display: none;'; ?>">
         <div class="flex" > 
@@ -80,10 +73,7 @@
         showSlide(slideIndex);
     }
 
-    // Initial display of the first slide
     showSlide(slideIndex);
-
-    // Attach functions to global scope for navigation
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
 });

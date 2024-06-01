@@ -27,7 +27,7 @@ require_once('../_inc/webpage.php');
     ?>
 <main id="padding"> 
     <!---------------FORMULAR--------------->
-    <center > <h1> Registracia </h1></center>
+    <center > <h1> Registrácia </h1></center>
     <div id="formular">
         <div class="flexform"> 
             <div id="forma"> 
@@ -40,7 +40,7 @@ require_once('../_inc/webpage.php');
         <input type="email" id="email" name="email" required>
         <p>Heslo</p>
         <input type="password" id="heslo" name="heslo" required>
-        <p>Poznamka</p>
+        <p>Poznámka</p>
         <textarea></textarea>
         <div id="checkbox"> 
         <p>Súhlasim so spracovanim osobných údajov.</p>

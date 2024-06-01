@@ -1,36 +1,38 @@
 <?php
     require_once ("partials/header.php");
     require_once ("../_inc/webpage.php");
-    $entity = new Entity();
-    $slides = $entity->getAllSlidesHviezdy();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+    $kontakty = new Kontakty();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['update'])) {
             $id = $_POST['id'];
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $fakt1 = $_POST['fakt1'];
-            $fakt2 = $_POST['fakt2'];
+            $meno = $_POST['meno'];
+            $email = $_POST['email'];
+            $telefon = $_POST['telefon'];
     
-            if ($entity->updateSlideHviezdy($id, $title, $content, $fakt1, $fakt2)) {
+            if ($kontakty->update($id, $meno, $email, $telefon)) {
                 $_SESSION['message'] = "Data updated successfully.";
             } else {
                 $_SESSION['message'] = "Failed to update data.";
             }
-
-            header("Location: edithviezdy.php");
-            exit();
         } elseif (isset($_POST['delete'])) {
             $id = $_POST['id'];
     
-            if ($entity->deleteSlideHviezdy($id)) {
+            if ($kontakty->delete($id)) {
                 $_SESSION['message'] = "Data deleted successfully.";
             } else {
                 $_SESSION['message'] = "Failed to delete data.";
             }
-            header("Location: edithviezdy.php");
-            exit();
         }
     }
+    
+    $zamestnanci = $kontakty->fetchAll();
+    
 
 ?>
     
@@ -45,38 +47,36 @@
         </div>
       </div>
       <div class="content">
-      <h1>Admin Page - upraviť údaje v hviezdy.php</h1>
+      <h1>Admin Page - upraviť údaje v kontakty.php</h1>
 </div>
-<div class="container">
-        <?php if (isset($_SESSION['message'])): ?>
+</div>
+<?php if (isset($_SESSION['message'])): ?>
             <p><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></p>
         <?php endif; ?>
-        <?php foreach ($slides as $slide): ?>
+
+        <?php foreach ($zamestnanci as $zamestnanec): ?>
             <form method="POST">
-                <input type="hidden" name="id" value="<?php echo htmlspecialchars($slide->id); ?>">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($zamestnanec->id); ?>">
                 <div class="form-group">
-                    <label for="title">Názov:</label>
-                    <input type="text" name="title" value="<?php echo htmlspecialchars($slide->title); ?>" required>
+                    <label for="meno">Meno:</label>
+                    <input type="text" name="meno" value="<?php echo htmlspecialchars($zamestnanec->meno); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="content">Popis:</label>
-                    <textarea name="content" required><?php echo htmlspecialchars($slide->content); ?></textarea>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value="<?php echo htmlspecialchars($zamestnanec->email); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="fakt1">Fakt 1:</label>
-                    <textarea name="fakt1" required><?php echo htmlspecialchars($slide->fakt1); ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="fakt2">Fakt 2:</label>
-                    <textarea name="fakt2" required><?php echo htmlspecialchars($slide->fakt2); ?></textarea>
+                    <label for="telefon">Telefón:</label>
+                    <input type="text" name="telefon" value="<?php echo htmlspecialchars($zamestnanec->telefon); ?>" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="update">Aktualizovať</button>
                     <button type="submit" name="delete" onclick="return confirm('Naozaj chcete odstrániť túto položku?')">Odstrániť</button>
                 </div>
             </form>
-            <hr>
         <?php endforeach; ?>
+    </div>
+    </div>
 </main>
 <?php
     include_once ('partials/footer.php')

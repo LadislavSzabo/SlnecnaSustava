@@ -10,13 +10,7 @@
 <main> 
 <?php 
      Banner::banner();?>
-    <!---------------BANNER S TEXTOM
-    <div class="mesiaceobraz">
-        <div class="content">
-          <h1>Mesiace v slnečnej Sustave</h1>
-          <a href="#mesiace" class="button-link">Čítať viac</a>
-        </div>
-      </div>--------------->
+
 <!---------------SLIDEs--------------->
 <?php foreach ($slides as $index => $slide): ?>
     <div class="riadok" alt="Slide <?php echo $slide->id; ?>" id="slide-<?php echo $slide->id; ?>" style="<?php echo $index == 0 ? 'display: block;' : 'display: none;'; ?>">
@@ -80,10 +74,7 @@
         showSlide(slideIndex);
     }
 
-    // Initial display of the first slide
     showSlide(slideIndex);
-
-    // Attach functions to global scope for navigation
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
 });

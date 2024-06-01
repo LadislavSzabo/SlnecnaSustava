@@ -29,10 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(slideIndex);
     }
 
-    // Initial display of the first slide
     showSlide(slideIndex);
 
-    // Attach functions to global scope for navigation
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
 });

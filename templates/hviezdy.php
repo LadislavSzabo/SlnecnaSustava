@@ -8,13 +8,6 @@
 ?>
 <body>
 <main> 
-    <!---------------BANNER S TEXTOM
-    <div class="hviezdyobraz" id="mesiace">
-        <div class="content">
-          <h1>Najbližšie hviezdy v galaxii</h1>
-          <a href="#hviezdy" class="button-link">Čítať viac</a>
-        </div>
-      </div>--------------->
      <?php 
      Banner::banner();?>
 
@@ -84,11 +77,8 @@
         }
         showSlide(slideIndex);
     }
-
-    // Initial display of the first slide
     showSlide(slideIndex);
 
-    // Attach functions to global scope for navigation
     window.nextSlide = nextSlide;
     window.prevSlide = prevSlide;
 });
