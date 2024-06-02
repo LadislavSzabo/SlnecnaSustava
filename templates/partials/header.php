@@ -14,7 +14,9 @@
 <?php
 require_once('../_inc/Classes/Menu.php');
 $menu = new Menu();
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 if(isset($_SESSION['logged_in']) && $_SESSION['is_admin'] == 1){
     $menu->addItem('admin.php', 'Admin');
   }else{

@@ -1,5 +1,5 @@
 <?php
-require_once('../_inc/webpage.php');           
+require_once('../_inc/webpage.php');    
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['heslo'];
@@ -23,7 +23,7 @@ if(isset($_POST['login'])){
         }
        }
 
-        require_once ("partials/header.php");
+        require_once ("partials/header.php");     
     ?>
 <main id="padding"> 
     <!---------------FORMULAR--------------->

@@ -16,7 +16,7 @@
             } else {
                 $_SESSION['message'] = "Failed to update data.";
             }
-            header("Location: editmesiace.php");
+            header("Location: editplanety.php");
             exit();
         } elseif (isset($_POST['delete'])) {
             $id = $_POST['id'];
